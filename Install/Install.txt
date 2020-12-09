@@ -1,0 +1,30 @@
+* Usefull links! *
+https://cmayrhuber.github.io/raspi-workspace/
+https://iokevins-social.blogspot.com/2014/04/linux-debian-citrix-receiver-ssl-error.html
+
+* Install Citrix *
+1/ Download Citrix workspace app for Linux (Debian > Full Packages > ARM HF)
+2/ Double-click to install
+3/ Download certificate DigiCert High Assurance EV Root CA (https://cacerts.digicert.com/DigiCertHighAssuranceEVRootCA.crt.pem)
+4/ Install certificate
+sudo cp DigiCertHighAssuranceEVRootCA.crt.pem /opt/Citrix/ICAClient/keystore/cacerts/
+sudo c_rehash /opt/Citrix/ICAClient/keystore/cacerts/
+5/ Connect to https://qrt.citrix.options-it.com/vpn/index.html
+
+* Enable audio in Citrix Workspace *
+Add in ~/.ICAClient/wfclient.ini
+[WFClient]
+AllowAudioInput=True
+
+* Dual-screen (replace lxde with marco) *
+sudo apt install marco mate-themes
+Replace in ~/.config/lxsession/LXDE-pi/desktop.conf
+window_manager=marco
+
+* Keyboards *
+- To disable CTRL-ALT-Fn shortcuts, copy 50-novtswitch.conf into /usr/share/X11/xorg.conf.d/50-novtswitch.conf
+See https://unix.stackexchange.com/questions/34158/rebinding-disabling-ctrlaltf-virtual-terminal-console-switching
+
+* TODO *
+- Shift key for number
+
